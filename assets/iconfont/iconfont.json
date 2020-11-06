@@ -1,0 +1,16 @@
+{
+  "id": "2178516",
+  "name": "blog",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15809109",
+      "name": "gitee-fill-round",
+      "font_class": "gitee-fill-round",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
