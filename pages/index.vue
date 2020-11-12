@@ -1,18 +1,26 @@
 <template>
   <div class="main">
+    <!-- 标题和简述 -->
     <div class="banner">
       <div class="banner-conent">
         <header class="title">
-          <h1 class="h1-title">Jinooo's blog</h1>
+          <h1 class="h1-title">Jinooo's Blog</h1>
           <p class="desc-title">这里可以写一些描述!</p>
         </header>
       </div>
     </div>
+    <!-- 文章列表和侧边栏 -->
+    <MainContent />
   </div>
 </template>
 
 <script>
-export default {};
+import MainContent from "@/components/home/MainContent.vue";
+export default {
+  components: {
+    MainContent,
+  },
+};
 </script>
 
 <style>
@@ -33,6 +41,7 @@ h1 {
 .main .title {
   text-align: center;
   margin-top: 3rem;
+  color: #fff;
 }
 .main .h1-title {
   font-size: 3.2rem;
@@ -43,7 +52,7 @@ h1 {
 }
 .main .desc-title {
   max-width: 40rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.3;
   opacity: 0.9;
   margin: 1.5rem auto;
