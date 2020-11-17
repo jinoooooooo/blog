@@ -5,7 +5,11 @@
       <!-- 文章列表  -->
       <div class="postList">
         <!-- 单条文章 -->
-        <article class="post cardBox iconfont icon-top">
+        <article
+          v-for="(item, index) in 10"
+          :key="index"
+          class="post cardBox iconfont icon-top"
+        >
           <!-- 头部 -->
           <header class="postTitle">
             <!-- 标题 -->
@@ -38,12 +42,77 @@
               </span>
             </div>
           </header>
+          <!-- 分割线 -->
+          <a-divider />
+          <!-- 文章内容 -->
+          <div class="postMain">
+            <div class="postContent">
+              <!-- 文章图片 -->
+              <p align="center">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200427163531.jpg"
+                  width="500"
+                />
+              </p>
+              <!-- 文章简述 -->
+              <p>
+                很多人喜欢选择APP或网站中的深色模式，也许他们更喜欢这样的外观，或者他们想让自己的眼睛免受疲劳。这篇文章将告诉你如何在网站中实现一个自动的CSS深色模式，根据访客的系统主题来自动响应。
+              </p>
+            </div>
+            <!-- 阅读全文 -->
+            <a href="" class="readMore">阅读全文<a-icon type="right" /></a>
+          </div>
         </article>
       </div>
     </div>
-    <!-- 个人介绍侧栏 -->
+
     <article class="mainRight">
-      <aside class="blogger cardBox"></aside>
+      <!-- 个人介绍侧栏 -->
+      <aside class="blogger cardBox">
+        <!-- 头像 -->
+        <div class="avatar">
+          <img src="http://8.131.96.6/blog/images/avatar.jpg" alt="头像" />
+        </div>
+        <!-- icons -->
+        <div class="icons">
+          <icon-font type="icon-shouji" />
+          <icon-font type="icon-gitee" />
+          <icon-font type="icon-netease" />
+        </div>
+        <!--  -->
+        <div class="info">
+          <span class="name">Jinooo</span>
+          <span class="slogan">一名前端实习生</span>
+        </div>
+      </aside>
+      <!-- 分类栏 -->
+      <div class="categories cardBox">
+        <!-- 文章分类 -->
+        <a href="" title="全部分类" class="cardTitle"
+          ><a-icon type="folder-open" style="margin-right: 0.5rem" />文章分类</a
+        >
+        <!-- 分类列表 -->
+        <div class="cateList">
+          <a v-for="(item, index) in 6" :key="index" href=""
+            >JS <span>7</span></a
+          >
+        </div>
+      </div>
+      <!-- 标签栏 -->
+      <div class="tags cardBox">
+        <!-- 热门标签 -->
+        <a href="" title="热门标签" class="cardTitle"
+          ><a-icon type="tags" style="margin-right: 0.5rem" />热门标签</a
+        >
+        <!-- 标签列表 -->
+        <div class="tagList">
+          <template v-for="item in 4">
+            <a-tag color="#2db7f5" :key="item">鸡汤</a-tag
+            ><a-tag color="#381212" :key="item">鸡汤</a-tag
+            ><a-tag color="#f930e2" :key="item">鸡汤</a-tag>
+          </template>
+        </div>
+      </div>
     </article>
   </main>
 </template>
@@ -52,7 +121,7 @@
 import "@/static/iconfont/iconfont.css";
 import { Icon } from "ant-design-vue";
 const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/font_2178516_v8hz05it1qf.js ",
+  scriptUrl: "//at.alicdn.com/t/font_2178516_e1bzmqbxuf.js",
 });
 export default {
   components: {
@@ -114,7 +183,107 @@ export default {
 }
 .blogger {
   height: auto;
+  display: inline-table;
 }
+.blogger .avatar {
+  width: 235px;
+  height: 235px;
+  overflow: hidden;
+}
+.blogger .avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+.blogger .icons {
+  display: flex;
+  border: 1px solid #999;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: none;
+  margin-top: -2px;
+  height: 40px;
+  align-items: center;
+}
+.blogger .icons i {
+  height: 100%;
+  font-size: 1.2rem;
+  width: 33.3333%;
+  color: #333;
+  text-align: center;
+  opacity: 0.8;
+  line-height: 40px;
+}
+.blogger .icons i:hover {
+  color: #66b4d1;
+  cursor: pointer;
+}
+.blogger .info {
+  margin: 12px 0 2px;
+}
+.blogger .info .name {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 6px;
+}
+/*  */
+.mainRight .cardTitle {
+  color: #222;
+  opacity: 0.9;
+  font-size: 1.2rem;
+}
+.categories .cateList a {
+  display: block;
+  padding: 8px 0.3rem 7px;
+  color: #333;
+  opacity: 0.8;
+  font-size: 0.95rem;
+  line-height: 0.95rem;
+  position: relative;
+  transition: all 0.3s;
+  border-bottom: 1px solid #999;
+  margin-top: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.categories .cateList a:hover {
+  color: #11a8cd;
+  padding-left: 0.8rem;
+}
+.categories .cateList a span {
+  float: right;
+  background-color: #8d9ca1;
+  color: #fcfdfd;
+  border-radius: 8px;
+  padding: 0 0.13rem;
+  min-width: 1.2rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.6rem;
+  text-align: center;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.categories .cateList a span:hover {
+  background-color: #333;
+}
+/*  */
+.tags .tagList {
+  text-align: justify;
+  padding: 0.8rem 0.5rem 0.5rem;
+  margin: 0 -0.5rem -0.5rem;
+}
+.tags .tagList .ant-tag:hover {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.tags .tagList .ant-tag {
+  margin: 0 1.1rem 0.3rem 0;
+}
+
+/*  */
 .postTitle .postInfo > span {
   opacity: 0.7;
   font-size: 0.8rem;
@@ -140,5 +309,27 @@ export default {
 }
 .icon-top::before {
   content: "\e67d";
+}
+.post .ant-divider-horizontal {
+  margin: 12px 0;
+}
+.post .postMain {
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+.post .postMain .postContent {
+  margin-bottom: 0.3rem;
+  font-size: 0.92rem;
+}
+.postContent img {
+  max-height: 280px;
+  max-width: 100% !important;
+  margin: 0 auto;
+}
+.readMore {
+  float: right;
+  margin-right: 1rem;
+  line-height: 1rem;
+  color: #11a8cd;
 }
 </style>
