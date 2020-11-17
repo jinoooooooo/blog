@@ -10,7 +10,7 @@
             class="logo"
             alt="Jinooo's blog"
           />
-          <span class="logo-title">Jinooo's Blog</span>
+          <!-- <span class="logo-title">Jinooo's Blog</span> -->
         </a>
         <!-- 右侧链接 -->
         <div class="links">
@@ -22,16 +22,16 @@
           </div>
           <!-- 导航菜单  -->
           <nav class="nav-links">
-            <a-menu v-model="menuCurrent" mode="horizontal">
-              <a-menu-item key="home"> <a-icon type="home" />首页</a-menu-item>
-              <a-menu-item key="check">
-                <a-icon type="check" />分类</a-menu-item
-              >
-              <a-menu-item key="stop"> <a-icon type="stop" />归档</a-menu-item>
-              <a-menu-item key="apple"
-                ><a-icon type="apple" />生活随笔</a-menu-item
-              >
-              <a-menu-item key="api"> <a-icon type="api" />关于我</a-menu-item>
+            <a-menu v-model="menuCurrent" mode="horizontal" @click="changeMenu">
+              <a-menu-item key="home">
+                <NLink to="/">首页</NLink>
+              </a-menu-item>
+              <a-menu-item key="file">
+                <NLink to="/file">归档</NLink>
+              </a-menu-item>
+              <!--    <a-menu-item key="stop"><nuxt-link>分类</nuxt-link> </a-menu-item>
+              <a-menu-item key="apple"> <nuxt-link>生活随笔</nuxt-link> </a-menu-item>
+              <a-menu-item key="api"><nuxt-link>关于我</nuxt-link> </a-menu-item> -->
               <a-menu-item key="link"
                 ><icon-font type="icon-gitee-fill-round" />Gitee</a-menu-item
               >
@@ -118,7 +118,16 @@ export default {
     this.bgInterval = null;
   },
   methods: {
-    //暂停或播放背景音乐
+    //顶部菜单跳转
+    changeMenu(item) {
+      switch (item.key) {
+        case "home":
+          break;
+        case "file":
+          break;
+      }
+    },
+    //点击右下角music logo暂停或播放背景音乐
     isBgAudio() {
       if (this.audioState) {
         this.playBGM();
@@ -229,7 +238,7 @@ a {
 }
 .nav-bar .ant-menu-item,
 .ant-menu-submenu-title {
-  padding: 0 10px;
+  padding: 0 15px;
 }
 .nav-bar .ant-menu-item {
   transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
@@ -238,7 +247,8 @@ a {
 }
 .nav-bar .ant-menu-item:hover {
   cursor: pointer;
-  border-bottom: 2px solid #1890ff;
+  color: #52b7de;
+  border-bottom: 2px solid #52b7de;
 }
 .box .bodyBg1 {
   position: fixed;

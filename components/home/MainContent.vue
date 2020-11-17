@@ -48,10 +48,10 @@
           <div class="postMain">
             <div class="postContent">
               <!-- 文章图片 -->
-              <p align="center">
+              <p align="center" style="overflow: hidden;border-radius: 0.5rem;">
                 <img
                   src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200427163531.jpg"
-                  width="500"
+                  width="100%"
                 />
               </p>
               <!-- 文章简述 -->
@@ -60,7 +60,7 @@
               </p>
             </div>
             <!-- 阅读全文 -->
-            <a href="" class="readMore">阅读全文<a-icon type="right" /></a>
+            <a href="" class="readMore">Read more<a-icon type="right" /></a>
           </div>
         </article>
       </div>
@@ -82,7 +82,7 @@
         <!--  -->
         <div class="info">
           <span class="name">Jinooo</span>
-          <span class="slogan">一名前端实习生</span>
+          <span class="slogan">一名曾经想屠龙现在想撸猫的前端实习生</span>
         </div>
       </aside>
       <!-- 分类栏 -->
@@ -167,6 +167,7 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 .postTitle h2 {
+  display: inline-block;
   margin: 0.5rem 0;
   font-size: 1.5rem;
   border: none;
@@ -225,6 +226,9 @@ export default {
   font-size: 1.4rem;
   display: block;
   margin-bottom: 6px;
+}
+.blogger .info .slogan {
+  font-size: 0.8rem;
 }
 /*  */
 .mainRight .cardTitle {
@@ -322,9 +326,13 @@ export default {
   font-size: 0.92rem;
 }
 .postContent img {
-  max-height: 280px;
+  max-height: 380px;
   max-width: 100% !important;
   margin: 0 auto;
+  transition: all 0.8s; /* 所有的属性变化在0.5s的时间段内完成 */
+}
+.postContent img:hover {
+  transform: scale(1.2); /* 鼠标放到图片上的时候图片按比例放大1.2倍   */
 }
 .readMore {
   float: right;

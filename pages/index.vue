@@ -5,7 +5,7 @@
       <div class="banner-conent">
         <header class="title">
           <h1 class="h1-title">Jinooo's Blog</h1>
-          <p class="desc-title">这里可以写一些描述!</p>
+          <p class="desc-title">只争朝夕 不负韶华</p>
         </header>
       </div>
     </div>
