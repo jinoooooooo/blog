@@ -3,17 +3,17 @@
     <!-- 切换时间还是分类 -->
     <header class="fileHeader">
       <h1>
+        <icon-font type="icon-wenjianjia" />
+        归档
         <a-switch
           @change="onChange"
           checked-children="时间"
           un-checked-children="分类"
           defaultChecked
         />
-        <icon-font type="icon-guidang" />
-        归档
       </h1>
-      <FileType :isTime="isTime" />
     </header>
+    <FileType :isTime="isTime" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@
 import FileType from "@/components/home/FileType.vue";
 import { Icon } from "ant-design-vue";
 const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/font_2178516_ujvy8sfcp4.js",
+  scriptUrl: "//at.alicdn.com/t/font_2178516_sqjv69p313.js",
 });
 export default {
   components: {
@@ -57,6 +57,7 @@ export default {
 }
 .file .fileHeader .ant-switch-checked {
   background-color: #1890ff;
+  margin-left: 1.2rem;
 }
 .file .fileHeader h1 {
   font-size: 1.7rem;
@@ -64,6 +65,6 @@ export default {
 }
 .fileHeader h1 .anticon {
   font-size: 1.2rem;
-  margin: 0 0.2rem 0 1.8rem;
+  margin-right: 0.2rem;
 }
 </style>
