@@ -30,6 +30,9 @@
               <a-menu-item key="file">
                 <NLink to="/file">归档</NLink>
               </a-menu-item>
+              <a-menu-item key="tag">
+                <NLink to="/tag">标签</NLink>
+              </a-menu-item>
               <a-menu-item key="messageBoard"
                 ><NLink to="/messageBoard">留言</NLink>
               </a-menu-item>
