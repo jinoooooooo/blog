@@ -22,9 +22,12 @@
       <!-- 邮箱 -->
       <a-input
         allowClear
-        v-model="msgForm.mail"
+        v-model="msgForm.email"
         placeholder="再留下你的邮箱"
         :maxLength="32"
+        @change="emailRule"
+        @blur.prevent="emailBlur"
+        class="redTips"
       >
         <a-icon slot="prefix" type="mail" />
       </a-input>
@@ -36,8 +39,23 @@
         <a-switch checked-children="T" un-checked-children="F" />
       </a-tooltip>
       <!-- 提交按钮 -->
-      <a-button type="primary"> 确 认 </a-button>
+      <a-button
+        type="primary"
+        :disabled="
+          msgForm.msg.trim() &&
+          msgForm.userName.trim() &&
+          msgForm.email.trim() &&
+          isShowTip
+        "
+      >
+        确 认
+      </a-button>
     </div>
+    <!-- 提示消息 -->
+    <p class="msgTips" v-if="isShowTip">
+      <span></span>
+      <span>请输入正确的邮箱格式哦</span>
+    </p>
     <a-divider />
 
     <!-- 评论区 -->
@@ -97,17 +115,34 @@ export default {
       msgForm: {
         msg: "",
         userName: "",
-        mail: "",
+        email: "",
       },
+      emailReg: /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/,
       isShowBtn: false,
+      //是否显示提示
+      isShowTip: false,
     };
   },
   methods: {
+    emailBlur() {
+      if (this.emailReg.test(this.msgForm.email)) {
+        this.isShowTip = false;
+      } else {
+        this.isShowTip = true;
+      }
+    },
+    //
     changeBtn() {
       if (this.msgForm.msg.trim().length) {
         this.isShowBtn = true;
       } else {
         this.isShowBtn = false;
+      }
+    },
+    //校验邮箱格式
+    emailRule(item) {
+      if (this.emailReg.test(this.msgForm.email)) {
+        this.isShowTip = false;
       }
     },
   },
@@ -134,7 +169,15 @@ export default {
   border-top: none;
   border-left: none;
   border-right: none;
-  border-radius: 0;
+  border-radius: 2px;
+}
+.msgTips {
+  margin-top: 0.2rem;
+  color: red;
+}
+.msgTips span:nth-child(1) {
+  display: inline-block;
+  width: 21.2%;
 }
 .msgInfo .ant-switch {
   margin: 0 2rem;

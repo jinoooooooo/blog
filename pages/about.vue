@@ -1,0 +1,3 @@
+<template>
+  <div>关于自己</div>
+</template>

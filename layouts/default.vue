@@ -36,11 +36,11 @@
               <a-menu-item key="messageBoard"
                 ><NLink to="/messageBoard">留言</NLink>
               </a-menu-item>
-              <!--   <a-menu-item key="apple"> <nuxt-link>生活随笔</nuxt-link> </a-menu-item>
-              <a-menu-item key="api"><nuxt-link>关于我</nuxt-link> </a-menu-item> -->
-              <a-menu-item key="link"
-                ><icon-font type="icon-gitee-fill-round" />Gitee</a-menu-item
+
+              <a-menu-item key="about"
+                ><NLink to="/about">关于</NLink></a-menu-item
               >
+              <icon-font type="icon-gitee-fill-round" />
             </a-menu>
           </nav>
         </div>
