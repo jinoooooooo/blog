@@ -10,15 +10,16 @@
             class="logo"
             alt="Jinooo's blog"
           />
-          <!-- <span class="logo-title">Jinooo's Blog</span> -->
+          <span class="logo-title">Jinooo's Blog</span>
         </a>
         <!-- 右侧链接 -->
         <div class="links">
           <!-- 搜索框 -->
           <div class="search-input">
-            <a-input ref="keyword-input" v-model="keyword">
-              <a-icon slot="prefix" type="search" />
-            </a-input>
+            <a-input-search v-model="keyword" placeholder="input search text" />
+            <div class="inputIcon">
+              <a-icon type="search"></a-icon>
+            </div>
           </div>
           <!-- 导航菜单  -->
           <nav class="nav-links">
@@ -29,8 +30,10 @@
               <a-menu-item key="file">
                 <NLink to="/file">归档</NLink>
               </a-menu-item>
-              <!--    <a-menu-item key="stop"><nuxt-link>分类</nuxt-link> </a-menu-item>
-              <a-menu-item key="apple"> <nuxt-link>生活随笔</nuxt-link> </a-menu-item>
+              <a-menu-item key="messageBoard"
+                ><NLink to="/messageBoard">留言</NLink>
+              </a-menu-item>
+              <!--   <a-menu-item key="apple"> <nuxt-link>生活随笔</nuxt-link> </a-menu-item>
               <a-menu-item key="api"><nuxt-link>关于我</nuxt-link> </a-menu-item> -->
               <a-menu-item key="link"
                 ><icon-font type="icon-gitee-fill-round" />Gitee</a-menu-item
@@ -76,7 +79,7 @@
 import background from "@/components/home/Background";
 import { Icon } from "ant-design-vue";
 const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/font_2178516_y9pqs80oit.js",
+  scriptUrl: "//at.alicdn.com/t/font_2178516_baawreayxjr.js",
 });
 export default {
   components: {
@@ -231,6 +234,16 @@ a {
 .nav-bar .links .search-input {
   margin-right: 1rem;
 }
+.nav-bar .search-input .ant-input-search:hover {
+  opacity: 1;
+}
+.nav-bar .search-input .ant-input-search {
+  width: 200px;
+  margin-right: -30px;
+  opacity: 0;
+  font-size: 15px;
+  transition: all 0.7s;
+}
 .nav-bar .nav-links .ant-menu {
   background-color: #fbfef6;
   line-height: 34px;
@@ -249,6 +262,11 @@ a {
   cursor: pointer;
   color: #52b7de;
   border-bottom: 2px solid #52b7de;
+}
+.nav-bar .inputIcon {
+  display: inline-block;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.45);
 }
 .box .bodyBg1 {
   position: fixed;

@@ -121,7 +121,7 @@
 import "@/static/iconfont/iconfont.css";
 import { Icon } from "ant-design-vue";
 const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/font_2178516_e1bzmqbxuf.js",
+  scriptUrl: "//at.alicdn.com/t/font_2178516_kbvrwvekzdm.js",
 });
 export default {
   components: {
