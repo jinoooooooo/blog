@@ -87,6 +87,12 @@
           alt="bee"
           width="80"
         />
+        <img
+          class="beeImg4"
+          src="http://8.131.96.6/blog/images/bee-4.png"
+          alt="bee"
+          width="40"
+        />
         <!-- 头像 -->
         <div class="avatar">
           <img
@@ -255,6 +261,15 @@ export default {
     -webkit-transform: rotate(-360deg) translateX(20px) rotate(360deg);
   }
 }
+@keyframes bee4 {
+  from {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg) translateX(20px) rotate(360deg);
+  }
+}
 
 .blogger .beeImg {
   transition: 2s;
@@ -275,7 +290,14 @@ export default {
   right: 0;
   top: -5%;
   position: absolute;
-  animation: bee2 1.9s linear infinite; /*开始动画后无限循环，用来控制rotate*/
+  animation: bee3 1.9s linear infinite; /*开始动画后无限循环，用来控制rotate*/
+}
+.blogger .beeImg4 {
+  transition: 2s;
+  right: 30%;
+  top: -15%;
+  position: absolute;
+  animation: bee4 1.7s linear infinite; /*开始动画后无限循环，用来控制rotate*/
 }
 .blogger .avatar {
   width: 235px;

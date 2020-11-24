@@ -27,6 +27,25 @@ export default {
 h1 {
   color: #fff;
 }
+.h1-title {
+  animation: shake-it 0.5s reverse infinite
+    cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+@keyframes shake-it {
+  0% {
+    text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5);
+  }
+
+  25% {
+    text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5);
+  }
+}
 .main .banner {
   width: 100%;
   min-height: 450px;
