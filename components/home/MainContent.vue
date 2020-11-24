@@ -48,7 +48,7 @@
           <div class="postMain">
             <div class="postContent">
               <!-- 文章图片 -->
-              <p align="center" style="overflow: hidden;border-radius: 0.5rem;">
+              <p align="center" style="overflow: hidden; border-radius: 0.5rem">
                 <img
                   src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200427163531.jpg"
                   width="100%"
@@ -69,14 +69,55 @@
     <article class="mainRight">
       <!-- 个人介绍侧栏 -->
       <aside class="blogger cardBox">
+        <img
+          class="beeImg"
+          src="http://8.131.96.6/blog/images/bee.png"
+          alt="bee"
+          width="125"
+        />
+        <img
+          class="beeImg2"
+          src="http://8.131.96.6/blog/images/bee-2.png"
+          alt="bee"
+          width="100"
+        />
+        <img
+          class="beeImg3"
+          src="http://8.131.96.6/blog/images/bee-3.png"
+          alt="bee"
+          width="80"
+        />
         <!-- 头像 -->
         <div class="avatar">
-          <img src="http://8.131.96.6/blog/images/avatar.jpg" alt="头像" />
+          <img
+            class="avatarImg"
+            src="http://8.131.96.6/blog/images/avatar.jpg"
+            alt="头像"
+          />
         </div>
+
         <!-- icons -->
         <div class="icons">
-          <icon-font type="icon-shouji" />
-          <icon-font type="icon-gitee" />
+          <a-tooltip>
+            <template slot="title">
+              <img
+                style="width: 7rem; heihgt: 7rem"
+                src="http://8.131.96.6/blog/images/wechat.png"
+                alt="wechat"
+                title="wechat"
+              />
+            </template>
+
+            <icon-font type="icon-wechat"></icon-font>
+          </a-tooltip>
+          <a
+            href="mailto:jinooo@163.com"
+            class="anticon"
+            style="line-height: 1rem"
+          >
+            <icon-font type="icon-email"
+          /></a>
+
           <icon-font type="icon-netease" />
         </div>
         <!--  -->
@@ -121,7 +162,7 @@
 import "@/static/iconfont/iconfont.css";
 import { Icon } from "ant-design-vue";
 const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: "//at.alicdn.com/t/font_2178516_kbvrwvekzdm.js",
+  scriptUrl: "//at.alicdn.com/t/font_2178516_ikv86vlo27m.js",
 });
 export default {
   components: {
@@ -183,15 +224,65 @@ export default {
   padding: 0.95rem;
 }
 .blogger {
+  position: relative;
   height: auto;
   display: inline-table;
+}
+@keyframes bee {
+  from {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(20px) rotate(-360deg);
+  }
+}
+@keyframes bee2 {
+  from {
+    -webkit-transform: rotate(0deg) translateX(30px) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateX(30px) rotate(-360deg);
+  }
+}
+@keyframes bee3 {
+  from {
+    -webkit-transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(-360deg) translateX(20px) rotate(360deg);
+  }
+}
+
+.blogger .beeImg {
+  transition: 2s;
+  top: -20%;
+  left: 0;
+  position: absolute;
+  animation: bee 3s linear infinite; /*开始动画后无限循环，用来控制rotate*/
+}
+.blogger .beeImg2 {
+  transition: 2s;
+  left: 20%;
+  top: 0;
+  position: absolute;
+  animation: bee2 2s linear infinite; /*开始动画后无限循环，用来控制rotate*/
+}
+.blogger .beeImg3 {
+  transition: 2s;
+  right: 0;
+  top: -5%;
+  position: absolute;
+  animation: bee2 1.9s linear infinite; /*开始动画后无限循环，用来控制rotate*/
 }
 .blogger .avatar {
   width: 235px;
   height: 235px;
   overflow: hidden;
 }
-.blogger .avatar img {
+.blogger .avatarImg {
   width: 100%;
   height: 100%;
   border-radius: 3px;
@@ -206,14 +297,14 @@ export default {
   height: 40px;
   align-items: center;
 }
-.blogger .icons i {
+.blogger .icons .anticon {
   height: 100%;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   width: 33.3333%;
   color: #333;
   text-align: center;
   opacity: 0.8;
-  line-height: 40px;
+  line-height: 3rem;
 }
 .blogger .icons i:hover {
   color: #66b4d1;
@@ -307,7 +398,7 @@ export default {
   position: absolute;
   top: -12px;
   right: -2px;
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   color: #11a8cd;
   opacity: 0.85;
 }

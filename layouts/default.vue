@@ -16,7 +16,10 @@
         <div class="links">
           <!-- 搜索框 -->
           <div class="search-input">
-            <a-input-search v-model="keyword" placeholder="input search text" />
+            <a-input-search
+              v-model="keyword"
+              placeholder="Search Keywords..."
+            />
             <div class="inputIcon">
               <a-icon type="search"></a-icon>
             </div>
@@ -40,9 +43,14 @@
               <a-menu-item key="about"
                 ><NLink to="/about">关于</NLink></a-menu-item
               >
-              <icon-font type="icon-gitee-fill-round" />
             </a-menu>
           </nav>
+          <icon-font
+            @click="toMyGitee"
+            class="gitee-icon"
+            type="icon-gitee-fill-round"
+            style="line-height: 2.6rem"
+          />
         </div>
       </div>
     </header>
@@ -124,6 +132,13 @@ export default {
     this.bgInterval = null;
   },
   methods: {
+    //去我的码云
+    toMyGitee() {
+      let a = document.createElement("a");
+      a.href = "https://gitee.com/jinooo";
+      a.target = "_blank";
+      a.click();
+    },
     //顶部菜单跳转
     changeMenu(item) {
       switch (item.key) {
@@ -196,10 +211,17 @@ a {
 }
 .default {
 }
+.box {
+  padding-bottom: 2.5rem;
+}
 .box .bgAudio {
   position: fixed;
   right: 105px;
   bottom: 90px;
+}
+.box .gitee-icon {
+  line-height: 2.6rem;
+  margin-left: 1rem;
 }
 .nav-bar {
   opacity: 0.8;

@@ -52,6 +52,7 @@ export default {
   margin: 5rem auto;
   padding: 1rem 2.5rem 2rem;
 }
+
 .file .fileHeader .ant-switch {
   background-color: #84e989;
 }
