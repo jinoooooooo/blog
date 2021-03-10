@@ -6,7 +6,7 @@
         <!-- 左侧logo -->
         <a href="" class="home-link">
           <img
-            src="http://8.131.96.6/blog/images/logo.png"
+            src="http://82.156.194.232:8080/images/logo.png"
             class="logo"
             alt="Jinooo's blog"
           />
@@ -61,7 +61,7 @@
     <div class="bgAudio">
       <audio id="audio" ref="audio" loop autoplay="autoplay">
         <source
-          src="http://8.131.96.6/blog/audios/%E7%A9%BA%E5%8C%AA%20-%20Darling.mp3"
+          src="http://82.156.194.232:8080/audios/Darling.mp3"
           type="audio/mpeg"
         />
         您的浏览器不支持 audio 元素。
@@ -301,7 +301,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://8.131.96.6/blog/images/bg-1.jpg") center center /
+  background: url("http://82.156.194.232:8080/images/bg-1.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -313,7 +313,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://8.131.96.6/blog/images/bg-2.jpg") center center /
+  background: url("http://82.156.194.232:8080/images/bg-2.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -325,7 +325,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://8.131.96.6/blog/images/bg-3.jpg") center center /
+  background: url("http://82.156.194.232:8080/images/bg-3.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -337,7 +337,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://8.131.96.6/blog/images/bg-4.jpg") center center /
+  background: url("http://82.156.194.232:8080/images/bg-4.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -349,7 +349,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://8.131.96.6/blog/images/bg-5.jpg") center center /
+  background: url("http://82.156.194.232:8080/images/bg-5.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }

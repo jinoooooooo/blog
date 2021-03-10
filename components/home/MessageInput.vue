@@ -68,7 +68,7 @@
         </p>
         <a-avatar
           slot="avatar"
-          src="http://8.131.96.6/blog/images/avatar.jpg"
+          src="http://82.156.194.232:8080/images/avatat2.jpeg"
           alt="Jinooo"
         />
         <p slot="content">我来试着评论一下</p>
@@ -78,7 +78,7 @@
           <a slot="author">Jinooo</a>
           <a-avatar
             slot="avatar"
-            src="http://8.131.96.6/blog/images/avatar.jpg"
+            src="http://82.156.194.232:8080/images/avatat2.jpeg"
             alt="Jinooo"
           />
           <p slot="content">我来试着评论一下的回复<b>212121</b></p>
@@ -87,7 +87,7 @@
             <a slot="author">Jinooo</a>
             <a-avatar
               slot="avatar"
-              src="http://8.131.96.6/blog/images/avatar.jpg"
+              src="http://82.156.194.232:8080/images/avatat2.jpeg"
               alt="Jinooo"
             />
             <p slot="content">我来试着评论一下的回复的回复</p>
@@ -97,7 +97,7 @@
             <a slot="author">Jinooo</a>
             <a-avatar
               slot="avatar"
-              src="http://8.131.96.6/blog/images/avatar.jpg"
+              src="http://82.156.194.232:8080/images/avatat2.jpeg"
               alt="Jinooo"
             />
             <p slot="content">我来试着评论一下的回复的回复</p>

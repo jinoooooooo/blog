@@ -71,33 +71,45 @@
       <aside class="blogger cardBox">
         <img
           class="beeImg"
-          src="http://8.131.96.6/blog/images/bee.png"
+          src="http://82.156.194.232:8080/images/bee.png"
           alt="bee"
           width="125"
         />
         <img
           class="beeImg2"
-          src="http://8.131.96.6/blog/images/bee-2.png"
+          src="http://82.156.194.232:8080/images/bee-2.png"
           alt="bee"
           width="100"
         />
         <img
           class="beeImg3"
-          src="http://8.131.96.6/blog/images/bee-3.png"
+          src="http://82.156.194.232:8080/images/bee-3.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg4"
-          src="http://8.131.96.6/blog/images/bee-4.png"
+          src="http://82.156.194.232:8080/images/bee-4.png"
           alt="bee"
           width="40"
+        />
+        <img
+          class="beeImg5"
+          src="http://82.156.194.232:8080/images/bee-5.png"
+          alt="bee"
+          width="80"
+        />
+        <img
+          class="beeImg6"
+          src="http://82.156.194.232:8080/images/bee-6.png"
+          alt="bee"
+          width="60"
         />
         <!-- 头像 -->
         <div class="avatar">
           <img
             class="avatarImg"
-            src="http://8.131.96.6/blog/images/avatar.jpg"
+            src="http://82.156.194.232:8080/images/avatat2.jpeg"
             alt="头像"
           />
         </div>
@@ -108,7 +120,7 @@
             <template slot="title">
               <img
                 style="width: 7rem; heihgt: 7rem"
-                src="http://8.131.96.6/blog/images/wechat.png"
+                src="http://82.156.194.232:8080/images/erweima.jpeg"
                 alt="wechat"
                 title="wechat"
               />
@@ -117,7 +129,7 @@
             <icon-font type="icon-wechat"></icon-font>
           </a-tooltip>
           <a
-            href="mailto:jinooo@163.com"
+            href="mailto:jinooo0714@163.com"
             class="anticon"
             style="line-height: 1rem"
           >
@@ -270,6 +282,23 @@ export default {
     transform: rotate(-360deg) translateX(20px) rotate(360deg);
   }
 }
+@keyframes bee5 {
+  from {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg) translateX(20px) rotate(360deg);
+  }
+}
+@keyframes bee6 {
+  from {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg) translateX(20px) rotate(360deg);
+  }
+}
 
 .blogger .beeImg {
   transition: 2s;
@@ -298,6 +327,20 @@ export default {
   top: -15%;
   position: absolute;
   animation: bee4 1.7s linear infinite; /*开始动画后无限循环，用来控制rotate*/
+}
+.blogger .beeImg5 {
+  transition: 2s;
+  right: -10%;
+  top: -15%;
+  position: absolute;
+  animation: bee5 2.3s linear infinite; /*开始动画后无限循环，用来控制rotate*/
+}
+.blogger .beeImg6 {
+  transition: 2s;
+  right: 8%;
+  top: 15%;
+  position: absolute;
+  animation: bee6 1.7s linear infinite; /*开始动画后无限循环，用来控制rotate*/
 }
 .blogger .avatar {
   width: 235px;
