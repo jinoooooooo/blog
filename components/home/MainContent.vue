@@ -71,37 +71,37 @@
       <aside class="blogger cardBox">
         <img
           class="beeImg"
-          src="http://82.156.194.232:8080/images/bee.png"
+          src="http://82.156.194.232/images/bee.png"
           alt="bee"
           width="125"
         />
         <img
           class="beeImg2"
-          src="http://82.156.194.232:8080/images/bee-2.png"
+          src="http://82.156.194.232/images/bee-2.png"
           alt="bee"
           width="100"
         />
         <img
           class="beeImg3"
-          src="http://82.156.194.232:8080/images/bee-3.png"
+          src="http://82.156.194.232/images/bee-3.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg4"
-          src="http://82.156.194.232:8080/images/bee-4.png"
+          src="http://82.156.194.232/images/bee-4.png"
           alt="bee"
           width="40"
         />
         <img
           class="beeImg5"
-          src="http://82.156.194.232:8080/images/bee-5.png"
+          src="http://82.156.194.232/images/bee-5.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg6"
-          src="http://82.156.194.232:8080/images/bee-6.png"
+          src="http://82.156.194.232/images/bee-6.png"
           alt="bee"
           width="60"
         />
@@ -109,7 +109,7 @@
         <div class="avatar">
           <img
             class="avatarImg"
-            src="http://82.156.194.232:8080/images/avatat2.jpeg"
+            src="http://82.156.194.232/images/avatar.jpeg"
             alt="头像"
           />
         </div>
@@ -120,7 +120,7 @@
             <template slot="title">
               <img
                 style="width: 7rem; heihgt: 7rem"
-                src="http://82.156.194.232:8080/images/erweima.jpeg"
+                src="http://82.156.194.232/images/erweima.jpeg"
                 alt="wechat"
                 title="wechat"
               />
