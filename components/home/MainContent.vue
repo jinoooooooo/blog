@@ -71,37 +71,37 @@
       <aside class="blogger cardBox">
         <img
           class="beeImg"
-          src="http://82.156.194.232/images/bee.png"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/bee.png"
           alt="bee"
           width="125"
         />
         <img
           class="beeImg2"
-          src="http://82.156.194.232/images/bee-2.png"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/bee-2.png"
           alt="bee"
           width="100"
         />
         <img
           class="beeImg3"
-          src="http://82.156.194.232/images/bee-3.png"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/fa08db48b58a2d954556d115ec88f09e.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg4"
-          src="http://82.156.194.232/images/bee-4.png"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/65f314ec94abdc8980c9d58ae67feccc.png"
           alt="bee"
           width="40"
         />
         <img
           class="beeImg5"
-          src="http://82.156.194.232/images/bee-5.png"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/ec6f256d7e7d97fe178578ea4e898d33.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg6"
-          src="http://82.156.194.232/images/bee-6.png"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/993db3b3220ad1fca8a309bc55b95928.png"
           alt="bee"
           width="60"
         />
@@ -109,7 +109,7 @@
         <div class="avatar">
           <img
             class="avatarImg"
-            src="http://82.156.194.232/images/avatar.jpeg"
+            src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/b3dd060acbe1ce06363c8ded81e6dc9b.jpeg"
             alt="头像"
           />
         </div>

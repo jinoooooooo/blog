@@ -6,7 +6,7 @@
         <!-- 左侧logo -->
         <a href="" class="home-link">
           <img
-            src="http://82.156.194.232/images/logo.png"
+            src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs@main//logo.png"
             class="logo"
             alt="Jinooo's blog"
           />
@@ -61,7 +61,7 @@
     <div class="bgAudio">
       <audio id="audio" ref="audio" loop autoplay="autoplay">
         <source
-          src="http://82.156.194.232/images/audios/Darling.mp3"
+          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs@main//1-01 Darling.mp3"
           type="audio/mpeg"
         />
         您的浏览器不支持 audio 元素。
@@ -121,7 +121,7 @@ export default {
   },
   mounted() {
     //定时轮换背景图
-    this.bgInterval = setInterval(this.getBgBanner, 7000);
+    this.bgInterval = setInterval(this.getBgBanner, 5500);
     //获取背景音乐状态
     this.audioState = this.$refs.audio.paused;
     console.log("this.audioState---->", this.audioState);
@@ -301,7 +301,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://82.156.194.232/images/bg-1.jpg") center center /
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/eb86400bbc93de08d0f21c906a8ef5ac.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -313,7 +313,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://82.156.194.232/images/bg-2.jpg") center center /
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a11fe30534232b22c8849d24ab242344.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -325,7 +325,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://82.156.194.232/images/bg-3.jpg") center center /
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a04ac4ffc815f054e6bc3da0860ebe01.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -337,7 +337,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://82.156.194.232/images/bg-4.jpg") center center /
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/356b5a823982bb164d4ec8856ee00fe4.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
@@ -349,7 +349,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("http://82.156.194.232/images/bg-5.jpg") center center /
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/81167fbaa84610475b36cf5738be7b3b.jpg") center center /
     cover no-repeat;
   opacity: 0.8;
 }
