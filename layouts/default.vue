@@ -28,20 +28,27 @@
           <nav class="nav-links">
             <a-menu v-model="menuCurrent" mode="horizontal" @click="changeMenu">
               <a-menu-item key="home">
-                <NLink to="/">首页</NLink>
+                <NLink to="/"><a-icon type="bank" />首页</NLink>
               </a-menu-item>
               <a-menu-item key="file">
-                <NLink to="/file">归档</NLink>
+                <NLink to="/file"><a-icon type="table" />归档</NLink>
               </a-menu-item>
               <a-menu-item key="tag">
-                <NLink to="/tag">标签</NLink>
+                <NLink to="/tag"><a-icon type="tags" />标签</NLink>
               </a-menu-item>
               <a-menu-item key="messageBoard"
-                ><NLink to="/messageBoard">留言</NLink>
+                ><NLink to="/messageBoard"><a-icon type="message" />留言</NLink>
+              </a-menu-item>
+              <a-menu-item key="game"
+                ><NLink to="/game"
+                  ><a-icon type="star" />摸鱼小游戏</NLink
+                >
               </a-menu-item>
 
               <a-menu-item key="about"
-                ><NLink to="/about">关于</NLink></a-menu-item
+                ><NLink to="/about"
+                  ><a-icon type="bug" /> 关于</NLink
+                ></a-menu-item
               >
             </a-menu>
           </nav>
@@ -301,8 +308,8 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/eb86400bbc93de08d0f21c906a8ef5ac.jpg") center center /
-    cover no-repeat;
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/eb86400bbc93de08d0f21c906a8ef5ac.jpg")
+    center center / cover no-repeat;
   opacity: 0.8;
 }
 .box .bodyBg2 {
@@ -313,8 +320,8 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a11fe30534232b22c8849d24ab242344.jpg") center center /
-    cover no-repeat;
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a11fe30534232b22c8849d24ab242344.jpg")
+    center center / cover no-repeat;
   opacity: 0.8;
 }
 .box .bodyBg3 {
@@ -325,8 +332,8 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a04ac4ffc815f054e6bc3da0860ebe01.jpg") center center /
-    cover no-repeat;
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a04ac4ffc815f054e6bc3da0860ebe01.jpg")
+    center center / cover no-repeat;
   opacity: 0.8;
 }
 .box .bodyBg4 {
@@ -337,8 +344,8 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/356b5a823982bb164d4ec8856ee00fe4.jpg") center center /
-    cover no-repeat;
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/356b5a823982bb164d4ec8856ee00fe4.jpg")
+    center center / cover no-repeat;
   opacity: 0.8;
 }
 .box .bodyBg5 {
@@ -349,8 +356,8 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/81167fbaa84610475b36cf5738be7b3b.jpg") center center /
-    cover no-repeat;
+  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/81167fbaa84610475b36cf5738be7b3b.jpg")
+    center center / cover no-repeat;
   opacity: 0.8;
 }
 /* 回到顶部 hover */
