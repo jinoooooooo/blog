@@ -1,32 +1,32 @@
 <template>
   <div>
     <!-- 时间 -->
-    <article v-if="isTime">
-      <div class="fileItem" v-for="item in 8" :key="item">
-        <!--  -->
-        <h2 class="fileTitle">2020</h2>
-        <a-timeline>
-          <a-timeline-item>
-            <span>2020-09-01</span>
-            假如这是文章标题
-          </a-timeline-item>
-          <a-timeline-item>
-            <span>2020-09-01</span>Solve initial network problems
-          </a-timeline-item>
-          <a-timeline-item>
-            <span>2020-09-01</span> 假如这是文章标题
-          </a-timeline-item>
-          <a-timeline-item>
-            <span>2020-09-01</span> Network problems being
-            solved</a-timeline-item
+    <article>
+      <div class="fileItem" v-for="(item, index) in articlesList" :key="index">
+        <h2 class="fileTitle">
+          {{ item.name }}
+          <span v-if="item.sub_articles.length">{{
+            `（${item.sub_articles.length}）`
+          }}</span>
+        </h2>
+        <a-timeline v-if="item.sub_articles.length">
+          <a-timeline-item
+            v-for="(s_item, s_index) in item.sub_articles"
+            :key="s_index"
+            @click="$router.push(`/article?id=${s_item._id}`)"
           >
+            <span>{{ $filterTime(s_item.last_modify_date) }}</span>
+            {{ s_item.title }}
+          </a-timeline-item>
         </a-timeline>
+        <!-- 空数据展示 -->
+        <a-empty v-else description="暂无文章" />
       </div>
       <!--  -->
     </article>
     <!-- 分类 -->
-    <article v-else>
-      <div class="fileItem" v-for="item in 5" :key="item">
+    <!-- <article v-else>
+      <div class="fileItem" v-for="(item, index) in articlesList" :key="index">
         <h2 class="fileTitle"><i>#</i>前端<span> : 5</span></h2>
         <div class="cardBox">
           <a-card v-for="item in 5" :key="item">
@@ -38,7 +38,7 @@
           </a-card>
         </div>
       </div>
-    </article>
+    </article> -->
   </div>
 </template>
 
@@ -46,11 +46,10 @@
 export default {
   props: {
     isTime: Boolean,
-  },
-  data() {
-    return {
-      loading: true,
-    };
+    articlesList: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>
@@ -58,7 +57,7 @@ export default {
 <style scoped>
 .fileItem .fileTitle {
   margin-bottom: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.5rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid #d9d9d9;

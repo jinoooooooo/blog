@@ -1,6 +1,6 @@
 <template>
   <div class="tag">
-    <SearchTag />
+    <SearchTag :tag-list="tagList" />
   </div>
 </template>
 
@@ -10,8 +10,17 @@ export default {
   components: {
     SearchTag,
   },
+  head() {
+    return {
+      title: "标签 | Jinooo's blog",
+    };
+  },
   data() {
     return {};
+  },
+   async asyncData({ app }) {
+    const { data } = await app.$axios.get("/api/blog/get_article_tags");
+    return { tagList: data };
   },
 };
 </script>

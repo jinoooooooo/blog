@@ -1,12 +1,12 @@
 <template>
   <!-- 顶部导航栏 -->
   <div class="box">
-    <header class="default">
-      <div class="nav-bar">
+    <header class="top-header">
+      <div class="nav-bar" ref="navBar">
         <!-- 左侧logo -->
-        <a href="" class="home-link">
+        <a href="/" class="home-link">
           <img
-            src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs@main//logo.png"
+            src="https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/logo.png"
             class="logo"
             alt="Jinooo's blog"
           />
@@ -26,9 +26,9 @@
           </div>
           <!-- 导航菜单  -->
           <nav class="nav-links">
-            <a-menu v-model="menuCurrent" mode="horizontal" @click="changeMenu">
-              <a-menu-item key="home">
-                <NLink to="/"><a-icon type="bank" />首页</NLink>
+            <a-menu v-model="menuCurrent" mode="horizontal">
+              <a-menu-item key="index">
+                <NLink to="/" no-prefetch><a-icon type="bank" />首页</NLink>
               </a-menu-item>
               <a-menu-item key="file">
                 <NLink to="/file"><a-icon type="table" />归档</NLink>
@@ -36,13 +36,13 @@
               <a-menu-item key="tag">
                 <NLink to="/tag"><a-icon type="tags" />标签</NLink>
               </a-menu-item>
-              <a-menu-item key="messageBoard"
-                ><NLink to="/messageBoard"><a-icon type="message" />留言</NLink>
+              <a-menu-item key="message_board"
+                ><NLink to="/message_board"
+                  ><a-icon type="message" />留言</NLink
+                >
               </a-menu-item>
               <a-menu-item key="game"
-                ><NLink to="/game"
-                  ><a-icon type="star" />摸鱼小游戏</NLink
-                >
+                ><NLink to="/game"><a-icon type="star" />摸鱼小游戏</NLink>
               </a-menu-item>
 
               <a-menu-item key="about"
@@ -56,19 +56,19 @@
             @click="toMyGitee"
             class="gitee-icon"
             type="icon-gitee-fill-round"
-            style="line-height: 2.6rem"
+            style="line-height: 2.2rem"
           />
         </div>
       </div>
     </header>
-    <Nuxt />
+    <Nuxt :nuxtChildKey="'123'" />
     <!-- 背景图片 -->
     <div :class="bodyBg"></div>
     <!-- 背景音乐 -->
     <div class="bgAudio">
       <audio id="audio" ref="audio" loop autoplay="autoplay">
         <source
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs@main//1-01 Darling.mp3"
+          src="https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/509749b7177744eddb7c0294104813cd.mp3"
           type="audio/mpeg"
         />
         您的浏览器不支持 audio 元素。
@@ -88,13 +88,13 @@
       <a-back-top :visibilityHeight="1000" />
     </div>
     <!-- 背景泡泡 -->
-    <background ref="background" />
+    <Background ref="Background" />
     <!--  -->
   </div>
 </template>
 
 <script>
-import background from "@/components/home/Background";
+import Background from "@/components/home/Background";
 import { Icon } from "ant-design-vue";
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: "//at.alicdn.com/t/font_2178516_baawreayxjr.js",
@@ -102,7 +102,7 @@ const IconFont = Icon.createFromIconfontCN({
 export default {
   components: {
     IconFont,
-    background,
+    Background,
   },
   data() {
     return {
@@ -110,7 +110,7 @@ export default {
       //搜索
       keyword: null,
       //右上角导航菜单
-      menuCurrent: [],
+      menuCurrent: ["index"],
       //当前背景图片
       current: 0,
       bodyBg: "bodyBg1",
@@ -125,13 +125,14 @@ export default {
   },
   created() {
     this.getBgBanner();
+    console.log(this.$route.name)
+    this.menuCurrent=[this.$route.name];
   },
   mounted() {
     //定时轮换背景图
     this.bgInterval = setInterval(this.getBgBanner, 5500);
     //获取背景音乐状态
     this.audioState = this.$refs.audio.paused;
-    console.log("this.audioState---->", this.audioState);
   },
   beforeDestroy() {
     //清除背景轮换定时器
@@ -147,14 +148,14 @@ export default {
       a.click();
     },
     //顶部菜单跳转
-    changeMenu(item) {
-      switch (item.key) {
-        case "home":
-          break;
-        case "file":
-          break;
-      }
-    },
+    // changeMenu(item) {
+    //   switch (item.key) {
+    //     case "home":
+    //       break;
+    //     case "file":
+    //       break;
+    //   }
+    // },
     //点击右下角music logo暂停或播放背景音乐
     isBgAudio() {
       if (this.audioState) {
@@ -216,26 +217,31 @@ export default {
 a {
   display: inline-block;
 }
-.default {
-}
 .box {
   padding-bottom: 2.5rem;
 }
 .box .bgAudio {
   position: fixed;
-  right: 105px;
-  bottom: 90px;
+  right: 3rem;
+  bottom: 2rem;
 }
 .box .gitee-icon {
   line-height: 2.6rem;
   margin-left: 1rem;
 }
+.top-header {
+  z-index: 9999;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
 .nav-bar {
-  opacity: 0.8;
+  opacity: 1;
   padding: 0.7rem 1.5rem;
   line-height: 2.2rem;
   height: 3.6rem;
-  background-color: #fbfef6;
+  background-color: #fff;
   box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
 }
@@ -308,7 +314,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/eb86400bbc93de08d0f21c906a8ef5ac.jpg")
+  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/eb86400bbc93de08d0f21c906a8ef5ac.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -320,7 +326,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a11fe30534232b22c8849d24ab242344.jpg")
+  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/a11fe30534232b22c8849d24ab242344.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -332,7 +338,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/a04ac4ffc815f054e6bc3da0860ebe01.jpg")
+  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/a04ac4ffc815f054e6bc3da0860ebe01.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -344,7 +350,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/356b5a823982bb164d4ec8856ee00fe4.jpg")
+  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/81167fbaa84610475b36cf5738be7b3b.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -356,7 +362,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/81167fbaa84610475b36cf5738be7b3b.jpg")
+  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/81167fbaa84610475b36cf5738be7b3b.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }

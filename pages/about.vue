@@ -15,6 +15,11 @@ export default {
     IconFont,
     Resume,
   },
+  head() {
+    return {
+      title: "关于我 | Jinooo's blog",
+    };
+  },
 };
 </script>
 

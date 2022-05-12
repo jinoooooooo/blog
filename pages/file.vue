@@ -5,15 +5,9 @@
       <h1>
         <icon-font type="icon-wenjianjia" />
         归档
-        <a-switch
-          @change="onChange"
-          checked-children="时间"
-          un-checked-children="分类"
-          defaultChecked
-        />
       </h1>
     </header>
-    <FileType :isTime="isTime" />
+    <FileType :articles-list="articlesList" />
   </div>
 </template>
 
@@ -30,13 +24,22 @@ export default {
   },
   data() {
     return {
-      isTime: true,
+      // isTime: true,
+    };
+  },
+  head() {
+    return {
+      title: "归档 | Jinooo's blog",
     };
   },
   methods: {
-    onChange(state) {
-      this.isTime = state;
-    },
+    // onChange(state) {
+    //   this.isTime = state;
+    // },
+  },
+  async asyncData({ app }) {
+    const { data } = await app.$axios.get("/api/blog/get_article_categories");
+    return { articlesList: data };
   },
 };
 </script>

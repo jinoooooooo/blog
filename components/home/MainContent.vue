@@ -1,19 +1,30 @@
 <template>
   <!-- main -->
+
   <main class="mainContent">
     <div class="mainLeft">
       <!-- 文章列表  -->
       <div class="postList">
+        <!-- 骨架屏 -->
+        <a-skeleton
+          :loading="loading"
+          active
+          avatar
+          :paragraph="{ rows: 10 }"
+        />
         <!-- 单条文章 -->
         <article
-          v-for="(item, index) in 10"
-          :key="index"
-          class="post cardBox iconfont icon-top"
+          v-for="item in articlesList"
+          :key="item._id"
+          class="post cardBox iconfont"
+          :class="item.is_sticky ? 'icon-top' : ''"
         >
           <!-- 头部 -->
           <header class="postTitle">
             <!-- 标题 -->
-            <h2>如何根据系统主题自动响应CSS深色模式</h2>
+            <h2 @click="$router.push(`/article?id=${item._id}`)">
+              {{ item.title }}
+            </h2>
             <!-- 文章信息 -->
             <div class="postInfo">
               <!-- 作者 -->
@@ -27,18 +38,27 @@
               <!-- 发布时间 -->
               <span title="发布时间">
                 <a-icon type="schedule" />
-                2020-12-31
+                {{ $filterTime(item.last_modify_date) }}
               </span>
               <!-- 分类 -->
-              <span title="发布时间">
+              <span title="分类">
                 <a-icon type="folder-open" />
-                <span class="postLink">页面</span><span class="spacer">/</span
-                ><span class="postLink">CSS</span>
+                <span class="postLink">{{ item.category_name }}</span>
               </span>
               <!-- 标签 -->
               <span title="标签">
                 <a-icon type="tag" />
-                <span class="postLink">CSS</span>
+                <span
+                  class="postLink"
+                  v-for="(tag, t_index) in item.tag_names"
+                  :key="t_index"
+                  >{{ tag
+                  }}<span
+                    v-if="t_index !== item.tag_names.length - 1"
+                    class="spacer"
+                    >/</span
+                  ></span
+                >
               </span>
             </div>
           </header>
@@ -49,18 +69,17 @@
             <div class="postContent">
               <!-- 文章图片 -->
               <p align="center" style="overflow: hidden; border-radius: 0.5rem">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200427163531.jpg"
-                  width="100%"
-                />
+                <img :src="item.avatar" width="100%" />
               </p>
               <!-- 文章简述 -->
-              <p>
-                很多人喜欢选择APP或网站中的深色模式，也许他们更喜欢这样的外观，或者他们想让自己的眼睛免受疲劳。这篇文章将告诉你如何在网站中实现一个自动的CSS深色模式，根据访客的系统主题来自动响应。
+              <p class="summary">
+                {{ item.summary }}
               </p>
             </div>
             <!-- 阅读全文 -->
-            <a href="" class="readMore">Read more<a-icon type="right" /></a>
+            <a @click="$router.push(`/article?id=${item._id}`)" class="readMore"
+              >Read more<a-icon type="right"
+            /></a>
           </div>
         </article>
       </div>
@@ -71,7 +90,7 @@
       <aside class="blogger cardBox">
         <img
           class="beeImg"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/bee.png"
+          src="https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/dfa7a12ed9051f13d90783d3e0a27e63.png"
           alt="bee"
           width="125"
         />
@@ -120,40 +139,50 @@
             <template slot="title">
               <img
                 style="width: 7rem; heihgt: 7rem"
-                src="http://82.156.194.232/images/erweima.jpeg"
+                src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs@main//997c438d669c33e52d00ff39375658ed.jpeg"
                 alt="wechat"
                 title="wechat"
               />
             </template>
-
-            <icon-font type="icon-wechat"></icon-font>
+            <a class="anticon" style="line-height: 1rem">
+              <a-icon type="user-add"
+            /></a>
           </a-tooltip>
+          <!-- 邮箱 -->
           <a
             href="mailto:jinooo0714@163.com"
             class="anticon"
             style="line-height: 1rem"
           >
-            <icon-font type="icon-email"
+            <a-icon type="mail"
           /></a>
-
-          <icon-font type="icon-netease" />
+          <!-- 网易云 -->
+          <a
+            href="https://music.163.com/#/playlist?id=368488897"
+            target="_blank"
+            class="anticon"
+            style="line-height: 1rem"
+          >
+            <a-icon type="customer-service"
+          /></a>
         </div>
         <!--  -->
         <div class="info">
           <span class="name">Jinooo</span>
-          <span class="slogan">一名曾经想屠龙现在想撸猫的前端实习生</span>
+          <span class="slogan">一名曾经想屠龙现在想撸猫的前端攻城狮</span>
         </div>
       </aside>
       <!-- 分类栏 -->
       <div class="categories cardBox">
         <!-- 文章分类 -->
-        <a href="" title="全部分类" class="cardTitle"
+        <a href="#" title="全部分类" class="cardTitle"
           ><a-icon type="folder-open" style="margin-right: 0.5rem" />文章分类</a
         >
         <!-- 分类列表 -->
+        <a-skeleton :loading="loading" active />
         <div class="cateList">
-          <a v-for="(item, index) in 6" :key="index" href=""
-            >JS <span>7</span></a
+          <a v-for="item in categotiesList" :key="item._id" href=""
+            >{{ item.name }} <span></span></a
           >
         </div>
       </div>
@@ -164,11 +193,10 @@
           ><a-icon type="tags" style="margin-right: 0.5rem" />热门标签</a
         >
         <!-- 标签列表 -->
+        <a-skeleton :loading="loading" active />
         <div class="tagList">
-          <template v-for="item in 4">
-            <a-tag color="#2db7f5" :key="item">鸡汤</a-tag
-            ><a-tag color="#381212" :key="item">鸡汤</a-tag
-            ><a-tag color="#f930e2" :key="item">鸡汤</a-tag>
+          <template v-for="item in tagsList">
+            <a-tag color="#94B3FD" :key="item._id">{{ item.name }}</a-tag>
           </template>
         </div>
       </div>
@@ -185,6 +213,33 @@ const IconFont = Icon.createFromIconfontCN({
 export default {
   components: {
     IconFont,
+  },
+  data() {
+    return {
+      //分类列表
+      categotiesList: [],
+      //标签列表
+      tagsList: [],
+      //文章列表
+      articlesList: [],
+      //数据还未加载完成显示骨架屏
+      loading: false,
+    };
+  },
+  async created() {
+    this.loading = true;
+    //分类
+    const categoriesData = this.$axios.get("/api/blog/get_categories");
+    //标签
+    const tagsData = this.$axios.get("/api/blog/get_article_tags");
+    //文章
+    const articlesData = this.$axios.get("/api/blog/get_articles");
+    let result = await Promise.all([categoriesData, tagsData, articlesData]);
+    // console.log(result)
+    this.categotiesList = result[0];
+    this.tagsList = result[1]["data"];
+    this.articlesList = result[2]["data"];
+    this.loading = false;
   },
 };
 </script>
@@ -212,6 +267,8 @@ export default {
   padding: 1rem 1.5rem;
   margin-bottom: 0.9rem;
   transition: all 0.3s;
+  cursor: pointer;
+  content-visibility: auto;
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -235,6 +292,7 @@ export default {
 }
 .postTitle h2:hover {
   color: #4aa6c9;
+  font-weight: 700;
 }
 /*  */
 .mainContent .mainRight .cardBox {
@@ -431,11 +489,13 @@ export default {
 /*  */
 .tags .tagList {
   text-align: justify;
+  cursor: pointer;
   padding: 0.8rem 0.5rem 0.5rem;
   margin: 0 -0.5rem -0.5rem;
 }
 .tags .tagList .ant-tag:hover {
   opacity: 1;
+  /* cursor: pointer; */
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -481,6 +541,14 @@ export default {
   margin-bottom: 0.3rem;
   font-size: 0.92rem;
 }
+.summary {
+  max-height: 3rem;
+  line-height: 1rem;
+  display: -webkit-box; /**对象作为伸缩盒子模型展示**/
+  -webkit-box-orient: vertical; /**设置或检索伸缩盒子对象的子元素的排列方式**/
+  -webkit-line-clamp: 3; /**显示的行数**/
+  overflow: hidden; /**隐藏超出的内容**/
+}
 .postContent img {
   max-height: 380px;
   max-width: 100% !important;
@@ -495,5 +563,12 @@ export default {
   margin-right: 1rem;
   line-height: 1rem;
   color: #11a8cd;
+}
+.ant-skeleton {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.9rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 </style>
