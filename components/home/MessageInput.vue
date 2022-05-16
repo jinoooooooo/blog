@@ -73,7 +73,7 @@
         </p>
         <a-avatar
           slot="avatar"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/b3dd060acbe1ce06363c8ded81e6dc9b.jpeg"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/tom.jpg"
           alt="Jinooo"
         />
         <p slot="content">{{ item.content }}</p>
