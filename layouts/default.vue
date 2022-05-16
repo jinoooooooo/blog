@@ -125,7 +125,6 @@ export default {
   },
   created() {
     this.getBgBanner();
-    console.log(this.$route.name)
     this.menuCurrent=[this.$route.name];
   },
   mounted() {
