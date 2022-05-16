@@ -1,12 +1,12 @@
 <template>
-  <div class="article">
+  <div class="article" v-if="articleDetail">
     <div class="article_top">
       <!-- 面包屑 -->
       <span class="back-btn" @click="$router.back()"
         ><a-icon type="left" />Go back</span
       >
       <!-- 文章详情信息 -->
-      <div class="postInfo">
+      <div class="postInfo" >
         <!-- 作者 -->
 
         <a
@@ -16,7 +16,7 @@
           href="https://gitee.com/jinooo"
         >
           <a-avatar
-            :src="articleDetail.avatar"
+            :src="articleDetail['avatar']"
             style="vertical-align: text-bottom"
             alt="作者头像"
           />

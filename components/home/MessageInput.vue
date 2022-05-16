@@ -88,9 +88,9 @@ export default {
   data() {
     return {
       msgForm: {
-        content: "1111",
-        nickname: "2222",
-        email: "2222@qq.com",
+        content: "",
+        nickname: "",
+        email: "",
         anonymous: false,
       },
       emailReg:
