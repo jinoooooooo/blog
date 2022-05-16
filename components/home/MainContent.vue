@@ -90,37 +90,37 @@
       <aside class="blogger cardBox">
         <img
           class="beeImg"
-          src="https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/dfa7a12ed9051f13d90783d3e0a27e63.png"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bee.png"
           alt="bee"
           width="125"
         />
         <img
           class="beeImg2"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/bee-2.png"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bee-2.png"
           alt="bee"
           width="100"
         />
         <img
           class="beeImg3"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/fa08db48b58a2d954556d115ec88f09e.png"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bee-3.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg4"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/65f314ec94abdc8980c9d58ae67feccc.png"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bee-4.png"
           alt="bee"
           width="40"
         />
         <img
           class="beeImg5"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/ec6f256d7e7d97fe178578ea4e898d33.png"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bee-5.png"
           alt="bee"
           width="80"
         />
         <img
           class="beeImg6"
-          src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/993db3b3220ad1fca8a309bc55b95928.png"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bee-6.png"
           alt="bee"
           width="60"
         />
@@ -128,7 +128,7 @@
         <div class="avatar">
           <img
             class="avatarImg"
-            src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs/b3dd060acbe1ce06363c8ded81e6dc9b.jpeg"
+            src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/daxiong.jpeg"
             alt="头像"
           />
         </div>
@@ -139,7 +139,7 @@
             <template slot="title">
               <img
                 style="width: 7rem; heihgt: 7rem"
-                src="https://cdn.jsdelivr.net/gh/jinoooooooo/blog_imgs@main//997c438d669c33e52d00ff39375658ed.jpeg"
+                src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/wx.png"
                 alt="wechat"
                 title="wechat"
               />

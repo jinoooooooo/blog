@@ -6,7 +6,7 @@
         <!-- 左侧logo -->
         <a href="/" class="home-link">
           <img
-            src="https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/logo.png"
+            src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/logo.png"
             class="logo"
             alt="Jinooo's blog"
           />
@@ -68,7 +68,7 @@
     <div class="bgAudio">
       <audio id="audio" ref="audio" loop autoplay="autoplay">
         <source
-          src="https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/509749b7177744eddb7c0294104813cd.mp3"
+          src="https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/Darling.mp3"
           type="audio/mpeg"
         />
         您的浏览器不支持 audio 元素。
@@ -314,7 +314,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/eb86400bbc93de08d0f21c906a8ef5ac.jpg")
+  background: url("https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bg-1.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -326,7 +326,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/a11fe30534232b22c8849d24ab242344.jpg")
+  background: url("https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bg-2.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -338,7 +338,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/a04ac4ffc815f054e6bc3da0860ebe01.jpg")
+  background: url("https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bg-3.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -350,7 +350,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/81167fbaa84610475b36cf5738be7b3b.jpg")
+  background: url("https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bg-4.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
@@ -362,7 +362,7 @@ a {
   height: 100vh;
   width: 100vw;
   transition: background 3s ease 0.5s;
-  background: url("https://raw.githubusercontent.com/jinoooooooo/blog_imgs/main/81167fbaa84610475b36cf5738be7b3b.jpg")
+  background: url("https://jinooo-blog.oss-cn-beijing.aliyuncs.com/blog_img/bg-5.jpg")
     center center / cover no-repeat;
   opacity: 0.8;
 }
