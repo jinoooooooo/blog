@@ -4,6 +4,7 @@
       ref="tagInput"
       v-model="tagName"
       placeholder="输入文章标题关键词来搜索哦"
+      disabled
     >
       <icon-font type="icon-tag" slot="prefix" style="font-size: 1.1rem" />
       <icon-font type="icon-search" slot="suffix" />

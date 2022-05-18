@@ -6,7 +6,7 @@
         ><a-icon type="left" />Go back</span
       >
       <!-- 文章详情信息 -->
-      <div class="postInfo" >
+      <div class="postInfo">
         <!-- 作者 -->
 
         <a
@@ -30,7 +30,9 @@
         <!-- 分类 -->
         <span>
           <a-icon type="folder-open" />
-          <span class="postLink">{{ articleDetail.category_name }}</span>
+          <span class="postLink" @click="$router.push('/file')">{{
+            articleDetail.category_name
+          }}</span>
         </span>
         <!-- 标签 -->
         <span>
@@ -50,7 +52,7 @@
         <!-- 阅读量 -->
         <span>
           <a-icon type="read" />
-          <span class="postLink">阅读量：{{ articleDetail.view_count }}</span>
+          <span class="postLink">阅读人数：{{ articleDetail.read_count }}</span>
         </span>
       </div>
     </div>
@@ -121,13 +123,26 @@ export default {
         subfield: true, // 单双栏模式
         preview: true, // 预览
       },
+      articleDetail: {},
     };
   },
-  async asyncData({ app }) {
-    const { data } = await app.$axios.get(
-      `/api/blog/get_article_by_id?_id=${app.context.query.id}`
+  async created() {
+    //判断是否是客户端环境
+    if (process.client) {
+      let article_ids = JSON.parse(localStorage.getItem("read_ids")) || [];
+      if (!article_ids.includes(this.$route.query.id)) {
+        //首次访问
+        article_ids.push(this.$route.query.id);
+        localStorage.setItem("read_ids", JSON.stringify(article_ids));
+        await this.$axios.get(
+          `/api/blog/add_article_read_count?_id=${this.$route.query.id}`
+        );
+      }
+    }
+    let { data } = await this.$axios.get(
+      `/api/blog/get_article_by_id?_id=${this.$route.query.id}`
     );
-    return { articleDetail: data[0] };
+    this.articleDetail = data[0];
   },
 };
 </script>

@@ -16,13 +16,40 @@
         <div class="links">
           <!-- 搜索框 -->
           <div class="search-input">
-            <a-input-search
+            <a-auto-complete
+              class="global-search"
+              size="large"
+              style="width: 100%"
+              placeholder="input here"
+              option-label-prop="title"
+              @select="onSelect"
               v-model="keyword"
-              placeholder="Search Keywords..."
-            />
-            <div class="inputIcon">
+              @search="handleSearch"
+            >
+              <template slot="dataSource">
+                <a-select-option
+                  v-for="item in dataSource"
+                  :key="item._id"
+                  :title="item.summary"
+                >
+                  <span v-html="fliterTitle(item)"></span>
+                </a-select-option>
+              </template>
+              <a-input :class="keyword.trim() ? 'show' : ''">
+                <a-button
+                  slot="suffix"
+                  style="margin-right: -12px"
+                  class="search-btn"
+                  size="large"
+                  type="primary"
+                >
+                  <a-icon type="search" />
+                </a-button>
+              </a-input>
+            </a-auto-complete>
+            <!-- <div class="inputIcon">
               <a-icon type="search"></a-icon>
-            </div>
+            </div> -->
           </div>
           <!-- 导航菜单  -->
           <nav class="nav-links">
@@ -106,9 +133,10 @@ export default {
   },
   data() {
     return {
+      dataSource: [],
       audioState: true,
       //搜索
-      keyword: null,
+      keyword: "",
       //右上角导航菜单
       menuCurrent: ["index"],
       //当前背景图片
@@ -121,11 +149,11 @@ export default {
       bodyBg5: "bodyBg5",
       //背景定时器对象
       bgInterval: null,
+      timer: "",
     };
   },
   created() {
     this.getBgBanner();
-    this.menuCurrent=[this.$route.name];
   },
   mounted() {
     //定时轮换背景图
@@ -139,6 +167,20 @@ export default {
     this.bgInterval = null;
   },
   methods: {
+    //替换高亮字体
+    fliterTitle(item) {
+      if (item.title.includes(this.keyword)) {
+        return (
+          `${item.category_name}-` +
+          item.title.replace(
+            this.keyword,
+            `<font color='#42cccc'>${this.keyword}</font>`
+          )
+        );
+      } else {
+        return `${item.category_name}-${item.title}`;
+      }
+    },
     //去我的码云
     toMyGitee() {
       let a = document.createElement("a");
@@ -146,15 +188,30 @@ export default {
       a.target = "_blank";
       a.click();
     },
-    //顶部菜单跳转
-    // changeMenu(item) {
-    //   switch (item.key) {
-    //     case "home":
-    //       break;
-    //     case "file":
-    //       break;
-    //   }
-    // },
+    onSelect(value) {
+      this.keyword='';
+      this.$router.push(`/article?id=${value}`)
+    },
+    handleSearch(value) {
+      if (value.trim()) {
+        //搜索防抖
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          // 执行搜索请求
+          this.getSearchData(value);
+        }, 500); // 设置时间
+      } else {
+        setTimeout(() => {
+          this.dataSource=[];
+        }, 0);
+      }
+    },
+    async getSearchData(value) {
+      let res = await this.$axios.get(
+        `/api/blog/get_articles?keyword=${value}`
+      );
+      this.dataSource = res.data;
+    },
     //点击右下角music logo暂停或播放背景音乐
     isBgAudio() {
       if (this.audioState) {
@@ -180,6 +237,20 @@ export default {
     //暂停BGM
     stopBGM() {
       this.$refs.audio.pause();
+    },
+  },
+  watch: {
+    // 根据情况 $route.query 可以换成 $route.params
+    "$route.name": {
+      immediate: true, // 第一次的数据，也要当做是一种变化
+      handler(new_value, old_value) {
+        this.menuCurrent =
+          new_value !== "article"
+            ? [new_value]
+            : old_value === undefined || old_value === "article"
+            ? ["index"]
+            : [old_value];
+      },
     },
   },
 };
@@ -271,14 +342,20 @@ a {
 .nav-bar .links .search-input {
   margin-right: 1rem;
 }
-.nav-bar .search-input .ant-input-search:hover {
+::v-deep .nav-bar .search-input .ant-input:hover {
   opacity: 1;
 }
-.nav-bar .search-input .ant-input-search {
-  width: 200px;
-  margin-right: -30px;
+.nav-bar .search-input .search-btn {
+  height: 30px;
+}
+::v-deep .nav-bar .search-input .show .ant-input {
+  opacity: 1;
+}
+
+::v-deep .nav-bar .search-input .ant-input {
   opacity: 0;
   font-size: 15px;
+  height: 30px;
   transition: all 0.7s;
 }
 .nav-bar .nav-links .ant-menu {
@@ -300,11 +377,11 @@ a {
   color: #52b7de;
   border-bottom: 2px solid #52b7de;
 }
-.nav-bar .inputIcon {
+/* .nav-bar .inputIcon {
   display: inline-block;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.45);
-}
+} */
 .box .bodyBg1 {
   position: fixed;
   left: 0;
