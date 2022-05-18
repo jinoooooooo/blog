@@ -160,6 +160,7 @@ export default {
     this.bgInterval = setInterval(this.getBgBanner, 5500);
     //获取背景音乐状态
     this.audioState = this.$refs.audio.paused;
+    window.addEventListener("scroll", this.playBGM,true); // 监听页面滚动
   },
   beforeDestroy() {
     //清除背景轮换定时器
@@ -189,8 +190,8 @@ export default {
       a.click();
     },
     onSelect(value) {
-      this.keyword='';
-      this.$router.push(`/article?id=${value}`)
+      this.keyword = "";
+      this.$router.push(`/article?id=${value}`);
     },
     handleSearch(value) {
       if (value.trim()) {
@@ -202,7 +203,7 @@ export default {
         }, 500); // 设置时间
       } else {
         setTimeout(() => {
-          this.dataSource=[];
+          this.dataSource = [];
         }, 0);
       }
     },
