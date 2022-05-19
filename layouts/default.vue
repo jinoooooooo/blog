@@ -235,6 +235,7 @@ export default {
     playBGM() {
       console.log('播放BGM')
       this.$refs.audio.play();
+      this.audioState=false;
     },
     //暂停BGM
     stopBGM() {
