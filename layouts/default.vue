@@ -160,7 +160,6 @@ export default {
     this.bgInterval = setInterval(this.getBgBanner, 5500);
     //获取背景音乐状态
     this.audioState = this.$refs.audio.paused;
-    window.addEventListener("click", this.playBGM,true); // 监听页面滚动
   },
   beforeDestroy() {
     //清除背景轮换定时器
@@ -202,9 +201,7 @@ export default {
           this.getSearchData(value);
         }, 500); // 设置时间
       } else {
-        setTimeout(() => {
-          this.dataSource = [];
-        }, 0);
+        this.dataSource = [];
       }
     },
     async getSearchData(value) {
@@ -215,11 +212,7 @@ export default {
     },
     //点击右下角music logo暂停或播放背景音乐
     isBgAudio() {
-      if (this.audioState) {
-        this.playBGM();
-      } else {
-        this.stopBGM();
-      }
+      this.audioState ? this.playBGM() : this.stopBGM();
       this.audioState = !this.audioState;
     },
     //定时轮换背景图
@@ -233,9 +226,8 @@ export default {
     },
     //播放BGM
     playBGM() {
-      console.log('播放BGM')
       this.$refs.audio.play();
-      this.audioState=false;
+      this.audioState = false;
     },
     //暂停BGM
     stopBGM() {
